@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数据结构“树与二叉树”的学习 一些学习心得">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2019-07-18T03:34:56.966Z">
+<meta property="og:updated_time" content="2019-07-18T05:38:51.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Binary Tree Day one">
 <meta name="twitter:description" content="数据结构“树与二叉树”的学习 一些学习心得">
@@ -197,6 +197,43 @@
 <li>如果 i = 1，则结点 i 是二叉树的根，无双亲；如果 $i&gt;1$，则其双亲PARENT（i）是结点 $\lfloor i/2 \rfloor$。</li>
 <li>如果 2i&gt;n，则结点 i 无左孩子；否则其左孩子是结点 2i。</li>
 <li>如果 2i+1&gt;n，则结点 i 无右孩子；否则其右孩子是结点 2i+1。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3><ul>
+<li><p>顺序存储</p>
+</li>
+<li><p>链式存储</p>
+<h4 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXISIEZE 100;</span></span><br><span class="line"><span class="keyword">typedef</span> TElemType SqBiTree[MAXSIZE];</span><br><span class="line"><span class="comment">// TElemType 在实际编程中换成所需的类型</span></span><br><span class="line">SqBiTree bt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这种存储结构仅适用于完全二叉树，对于结点数很少的树来说是非常浪费存储空间的</p>
+</li>
+</ul>
+<h4 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">    TElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span>  <span class="comment">// 用于指向前驱和后继</span></span><br><span class="line">&#125;BiTNode, *BiTree;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在含有 n 个结点的二叉链表中有 n+1 个空链域<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n 个节点，每个结点 2 个指针域，共 2n 个指针域，</span><br><span class="line">用掉 n-1 个指针域，剩下 2n - ( n - 1 ) 个指针域。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h3><h4 id="规定先先左后右，分为三种情况："><a href="#规定先先左后右，分为三种情况：" class="headerlink" title="规定先先左后右，分为三种情况："></a>规定先先左后右，分为三种情况：</h4><ul>
+<li>先（根）序遍历（DLR）<ol>
+<li>先访问根结点</li>
+<li>先序遍历左子树</li>
+<li>先序遍历右子树 </li>
+</ol>
+</li>
+<li>中（根）序遍历（LDR）<ol>
+<li>中序遍历左子树</li>
+<li>访问根结点</li>
+<li>中序遍历右子树</li>
+</ol>
+</li>
+<li>后（根）序遍历（LRD）<ol>
+<li>后序遍历左子树</li>
+<li>后续遍历右子树</li>
+<li>访问根节点</li>
 </ol>
 </li>
 </ul>
