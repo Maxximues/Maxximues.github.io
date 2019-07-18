@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数据结构“树与二叉树”的学习 一些学习心得">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2019-07-18T05:43:52.779Z">
+<meta property="og:updated_time" content="2019-07-18T05:49:57.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Binary Tree Day one">
 <meta name="twitter:description" content="数据结构“树与二叉树”的学习 一些学习心得">
@@ -192,16 +192,15 @@
 <li>首先对满二叉树的结点进行编号，以root结点开始，从上往下，从左往右。假设深度为 k d，有 n 个结点的二叉树，当且仅当其中每一个结点都与深度为 k 的满二叉树中的编号从 1 至 n 的结点一一对应使，才称为完全二叉树。</li>
 </ul>
 <h3 id="两种特殊二叉树的重要特性"><a href="#两种特殊二叉树的重要特性" class="headerlink" title="两种特殊二叉树的重要特性"></a>两种特殊二叉树的重要特性</h3><ul>
-<li>具有 n 个结点的完全二叉树的深度为 $\lfloor log_2n\rfloor$ +1。</li>
-<li>如果对一棵有 n 个结点的完全二叉树（ 其深度为 $\lfloor log_2n\rfloor$ +1 ）的结点按层序编号，则对任一结点 i（ $1\leq i \leq n$ ），有<br><ol>
+<li><p>具有 n 个结点的完全二叉树的深度为 $\lfloor log_2n\rfloor$ +1。</p>
+</li>
+<li><p>如果对一棵有 n 个结点的完全二叉树（ 其深度为 $\lfloor log_2n\rfloor$ +1 ）的结点按层序编号，则对任一结点 i（ $1\leq i \leq n$ ），有<br></p>
+<ol>
 <li>如果 i = 1，则结点 i 是二叉树的根，无双亲；如果 $i&gt;1$，则其双亲PARENT（i）是结点 $\lfloor i/2 \rfloor$。</li>
 <li>如果 2i&gt;n，则结点 i 无左孩子；否则其左孩子是结点 2i。</li>
-<li>如果 2i+1&gt;n，则结点 i 无右孩子；否则其右孩子是结点 2i+1。</li>
+<li>如果 2i+1&gt;n，则结点 i 无右孩子；否则其右孩子是结点 2i+1。<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3></li>
 </ol>
 </li>
-</ul>
-<hr>
-<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3><ul>
 <li><p>顺序存储</p>
 </li>
 <li><p>链式存储</p>
@@ -236,7 +235,8 @@
 <li>后（根）序遍历（LRD）<ol>
 <li>后序遍历左子树</li>
 <li>后续遍历右子树</li>
-<li>访问根节点<br></li>
+<li>访问根节点<br>
+总体上来说</li>
 </ol>
 </li>
 </ul>
