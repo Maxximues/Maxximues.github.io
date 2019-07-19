@@ -6,19 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Binary Tree Day one | Hexo</title>
+  <title>Archives: 2019/7 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据结构“树与二叉树”的学习 一些学习心得">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Binary Tree Day one">
-<meta property="og:url" content="http://yoursite.com/2019/07/18/Binary-Tree/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数据结构“树与二叉树”的学习 一些学习心得">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2019-07-18T11:04:29.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Binary Tree Day one">
-<meta name="twitter:description" content="数据结构“树与二叉树”的学习 一些学习心得">
+<meta name="twitter:title" content="Hexo">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -146,240 +142,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Binary-Tree" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Binary Tree Day one
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/07/18/Binary-Tree/" class="archive-article-date">
+  	<time datetime="2019-07-18T01:19:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/18/Binary-Tree/">Binary Tree Day one</a>
     </h1>
   
 
-        
-        <a href="/2019/07/18/Binary-Tree/" class="archive-article-date">
-  	<time datetime="2019-07-18T01:19:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据结构“树与二叉树”的学习"><a href="#数据结构“树与二叉树”的学习" class="headerlink" title="数据结构“树与二叉树”的学习"></a>数据结构“树与二叉树”的学习</h1><hr>
-<h4 id="一些学习心得"><a href="#一些学习心得" class="headerlink" title="一些学习心得"></a>一些学习心得</h4><a id="more"></a>
-<h3 id="树：包含n个结点的有限集"><a href="#树：包含n个结点的有限集" class="headerlink" title="树：包含n个结点的有限集"></a>树：包含n个结点的有限集</h3><ul>
-<li>有且仅有一个 root 结点</li>
-<li>除了 root 结点以外的其余结点可以分为许多的不相交的有限集，而这些有限集本身也是一棵树，因此可以称为 root 的子树。<h3 id="二叉树：一种特殊的树"><a href="#二叉树：一种特殊的树" class="headerlink" title="二叉树：一种特殊的树"></a>二叉树：一种特殊的树</h3></li>
-<li>同样有且只有一个 root 结点</li>
-<li>但是不同于树，其每一个结点只有两个互不相交的子集，分别称为左子树和右子树（不能颠倒顺序），且左，右子树本身也属于二叉树。<h3 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h3></li>
-<li>二叉树的第 i 层最多有 $2^{i-1}$ 个结点</li>
-<li>深度为 k 的二叉树至多有 $2{i-2}$ 个结点</li>
-<li>任何一颗二叉树，叶子结点 $n_0$ 的个数等于度为 2 的结点 $n_2$ 个数 + 1。<h3 id="二叉树的两种特殊形态："><a href="#二叉树的两种特殊形态：" class="headerlink" title="二叉树的两种特殊形态："></a>二叉树的两种特殊形态：</h3></li>
-<li>满二叉树</li>
-<li>完全二叉树</li>
-</ul>
-<h3 id="满二叉树的特点"><a href="#满二叉树的特点" class="headerlink" title="满二叉树的特点"></a>满二叉树的特点</h3><ul>
-<li>每一层的结点数都是最大结点数，即 $2^{i-1}$ 个<h3 id="完全二叉树的特点"><a href="#完全二叉树的特点" class="headerlink" title="完全二叉树的特点"></a>完全二叉树的特点</h3></li>
-<li>首先对满二叉树的结点进行编号，以root结点开始，从上往下，从左往右。假设深度为 k d，有 n 个结点的二叉树，当且仅当其中每一个结点都与深度为 k 的满二叉树中的编号从 1 至 n 的结点一一对应使，才称为完全二叉树。</li>
-</ul>
-<h3 id="两种特殊二叉树的重要特性"><a href="#两种特殊二叉树的重要特性" class="headerlink" title="两种特殊二叉树的重要特性"></a>两种特殊二叉树的重要特性</h3><ul>
-<li><p>具有 n 个结点的完全二叉树的深度为 $\lfloor log_2n\rfloor$ +1。</p>
-</li>
-<li><p>如果对一棵有 n 个结点的完全二叉树（ 其深度为 $\lfloor log_2n\rfloor$ +1 ）的结点按层序编号，则对任一结点 i（ $1\leq i \leq n$ ），有<br></p>
-<ol>
-<li>如果 i = 1，则结点 i 是二叉树的根，无双亲；如果 $i&gt;1$，则其双亲PARENT（i）是结点 $\lfloor i/2 \rfloor$。</li>
-<li>如果 2i&gt;n，则结点 i 无左孩子；否则其左孩子是结点 2i。</li>
-<li>如果 2i+1&gt;n，则结点 i 无右孩子；否则其右孩子是结点 2i+1。<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3></li>
-</ol>
-</li>
-<li><p>顺序存储</p>
-</li>
-<li><p>链式存储</p>
-<h4 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXISIEZE 100;</span></span><br><span class="line"><span class="keyword">typedef</span> TElemType SqBiTree[MAXSIZE];</span><br><span class="line"><span class="comment">// TElemType 在实际编程中换成所需的类型</span></span><br><span class="line">SqBiTree bt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这种存储结构仅适用于完全二叉树，对于结点数很少的树来说是非常浪费存储空间的</p>
-</li>
-</ul>
-<h4 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">    TElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span>  <span class="comment">// 用于指向前驱和后继</span></span><br><span class="line">&#125;BiTNode, *BiTree;</span><br></pre></td></tr></table></figure>
+        <div class="article-info info-on-right">
+          
+          
 
-<ul>
-<li>在含有 n 个结点的二叉链表中有 n+1 个空链域<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n 个节点，每个结点 2 个指针域，共 2n 个指针域，</span><br><span class="line">用掉 n-1 个指针域，剩下 2n - ( n - 1 ) 个指针域。</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h3><blockquote>
-<p>二叉树遍历的关键在于<strong>递归</strong>思想。<br></p>
-</blockquote>
-<p>规定先先左后右，分为三种情况：</p>
-<ul>
-<li>先（根）序遍历（DLR）<ol>
-<li>先访问根结点</li>
-<li>先序遍历左子树</li>
-<li>先序遍历右子树 </li>
-</ol>
-</li>
-<li>中（根）序遍历（LDR）<ol>
-<li>中序遍历左子树</li>
-<li>访问根结点</li>
-<li>中序遍历右子树</li>
-</ol>
-</li>
-<li>后（根）序遍历（LRD）<ol>
-<li>后序遍历左子树</li>
-<li>后续遍历右子树</li>
-<li>访问根节点</li>
-</ol>
-</li>
-</ul>
-<p>例：中序遍历的递归算法</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderTraverse</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T) &#123;</span><br><span class="line">        InOrderTraverse(T-&gt;lchild);</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;T-&gt;data&lt;&lt;<span class="built_in">std</span>::ends;</span><br><span class="line">        InOrderTraverse(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>例：中序遍历的非递归算法</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderTraverse_N</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">    StackNode *S;</span><br><span class="line">    BiTNode *p,*q;</span><br><span class="line">    Initalize_Link(S);</span><br><span class="line">    p = T;</span><br><span class="line">    q = <span class="keyword">new</span> BiTNode;</span><br><span class="line">    <span class="keyword">while</span>(p||S) &#123; <span class="comment">// S表示存储二叉树data的栈不为空</span></span><br><span class="line">        <span class="keyword">if</span>(p) &#123;</span><br><span class="line">            Push_Link(S, p-&gt;data);</span><br><span class="line">            p = p-&gt;lchild;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Pop_Link(S, q-&gt;data);</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;q-&gt;data;</span><br><span class="line">            p=q-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无论是递归还是非递归算法，对于 n 个结点的二叉树，其时间复杂度均为O(n)，空间复杂度也为O(n)。</p>
-<h3 id="根据遍历序列确定二叉树"><a href="#根据遍历序列确定二叉树" class="headerlink" title="根据遍历序列确定二叉树"></a>根据遍历序列确定二叉树</h3><ul>
-<li>中序遍历 + 先序遍历</li>
-<li>中序遍历 + 后序遍历</li>
-</ul>
-<p>方法：先利用先(后)序序列，找到根结点。然后根据中序序列找到根节点的左，右子树，再在先序序列中取第二个结点（后序序列取倒数第二个结点），根据同样的方式，继续分割中序序列，一直递归直至完成。<br><em>注意：先序序列第一个结点就是根结点，后序序列最后一个结点是根结点。</em></p>
-<p>例如：已知一棵二叉树的中序序列和后序序列分别是 BDCEAFHG 和 DECBHGFA，请画出这棵二叉树</p>
-<ul>
-<li>第一步：根据后续序列 DECBHGFA 的最后一个结点，可以得到根结点为 A 为根结点</li>
-<li>第二步：在中序序列中找到 根结点 A 两侧的左，右子树 E 和 F。此时中序序列被分成两部分 左子树部分 BDCE，和右子树部分 FHG。后序序列也被分成左，右子树两部分，DECB 和 HGF。</li>
-<li>第三步：先看左子树的中序序列 BDCE，得到这部分的根节点是 B（A已经考虑完了，不再考虑），左子树的中序序列 BDCE 表示 B 结点只有右子树，是 CDE。同理，按这种方法不断递归，就可以得到一棵完整的二叉树。</li>
-</ul>
-<h3 id="二叉树遍历算法的应用"><a href="#二叉树遍历算法的应用" class="headerlink" title="二叉树遍历算法的应用"></a>二叉树遍历算法的应用</h3><p>先序遍历的顺序建立二叉链表</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateBiTree</span><span class="params">(BiTree &amp;T)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cin</span>&gt;&gt;ch;</span><br><span class="line">    <span class="keyword">if</span>(ch==<span class="string">'#'</span>) T=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        T = <span class="keyword">new</span> BiTNode;</span><br><span class="line">        T-&gt;data=ch;              <span class="comment">// 输出根节点    </span></span><br><span class="line">        CreateBiTree(T-&gt;lchild); <span class="comment">// 递归创建左子树 </span></span><br><span class="line">        CreateBiTree(T-&gt;rchild); <span class="comment">// 递归创建右子树     </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>中序遍历和后序遍历只需要改变最后三个语句的顺序即可</em></p>
-<p>复制二叉树</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Copy</span><span class="params">(BiTree T, BiTree &amp;NewT)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T==<span class="literal">NULL</span>) &#123;</span><br><span class="line">        NewT = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        NewT = <span class="keyword">new</span> BiTNode;</span><br><span class="line">        NewT-&gt;data = T-&gt;data;</span><br><span class="line">        Copy(T-&gt;lchild, NewT-&gt;lchild);</span><br><span class="line">        Copy(T-&gt;rchild, NewT-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>计算二叉树的深度</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树的深度等于左右子树深度较大的加 1</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Depth</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    m = n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(T==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        m = Depth(T-&gt;lchild);</span><br><span class="line">        n = Depth(T-&gt;rchild);</span><br><span class="line">        <span class="keyword">if</span>(n&gt;m) <span class="keyword">return</span>(n+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> (m+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>统计二叉书的结点个数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二叉树的个数等于左右子树结点数 + 1。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">NodeCount</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> NodeCount(T-&gt;lchild) + NodeCount(T-&gt;rchild) +<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/18/Binary-Tree/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -402,8 +207,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
