@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-20T07:52:15.819Z</updated>
+  <updated>2019-07-20T07:56:39.539Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,20 +21,17 @@
     <link href="http://yoursite.com/2019/07/20/%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/"/>
     <id>http://yoursite.com/2019/07/20/树和森林/</id>
     <published>2019-07-20T06:20:57.000Z</published>
-    <updated>2019-07-20T07:52:15.819Z</updated>
+    <updated>2019-07-20T07:56:39.539Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h2><ul><li>双亲表示法</li><li>孩子表示法</li><li>孩子兄弟表示法</li></ul><h4 id="双亲表示法"><a href="#双亲表示法" class="headerlink" title="双亲表示法"></a>双亲表示法</h4><p>用一组联系的存储单元存储树的结点，每个结点包含<em>数据域 data</em> 用于存储数据和<em>双亲域 parent</em> 用于指向其双亲（父节点）。<br>|data|parent|<br>|-|-|</p><p>原理：利用了每个结点只有唯一一个双亲（父节点）的性质。</p><h4 id="孩子表示法"><a href="#孩子表示法" class="headerlink" title="孩子表示法"></a>孩子表示法</h4><p>树中每个结点有多棵子树，每个结点包含一个<em>数据域 data</em> 和多个<em>指针域 $child_n$</em>。<br>|data|$child_1$|$child_2$|$child_3$|…|$child_d$|<br>|-|-|-|-|-|-|<br><em>d</em>表示树的度。<br>缺点：很多的结点度都是小于 d 的，所以有很多的空链域，即在一棵 n 个结点度为 k 的树中必有 n(k-1)+1 个空链域。</p><h4 id="孩子兄弟表示法"><a href="#孩子兄弟表示法" class="headerlink" title="孩子兄弟表示法"></a>孩子兄弟表示法</h4><p>也成为二叉链表表示法，树中的每一个结点包含一个<em>数据域 data</em> 和两个<em>指针域 firstchild</em> 指向第一个孩子和 <em>nextsibling</em> 指向下一兄弟。<br>|firstchild|data|nextsibling|<br>|-|-|-|</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span> &#123;</span></span><br><span class="line">    Elemtype data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span> *<span class="title">fiestchild</span>, *<span class="title">nextsibling</span>;</span></span><br><span class="line">&#125;CSNode, *CSTree；</span><br></pre></td></tr></table></figure><h3 id="森林与二叉树的转换"><a href="#森林与二叉树的转换" class="headerlink" title="森林与二叉树的转换"></a>森林与二叉树的转换</h3><p>任何一棵和树对应的二叉树，其根结点的右子树必定是空。<br>把森林中第二棵树的根结点看成是第一棵树的根结点的兄弟，就可以推导出森林与二叉树的对应关系。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h2><ul><li>双亲表示法</li><li>孩子表示法</li><li>孩子兄弟表示法</li></ul><a id="more"></a><h4 id="双亲表示法"><a href="#双亲表示法" class="headerlink" title="双亲表示法"></a>双亲表示法</h4><p>用一组联系的存储单元存储树的结点，每个结点包含<em>数据域 data</em> 用于存储数据和<em>双亲域 parent</em> 用于指向其双亲（父节点）。<br>|data|parent|<br>|-|-|</p><p>原理：利用了每个结点只有唯一一个双亲（父节点）的性质。</p><h4 id="孩子表示法"><a href="#孩子表示法" class="headerlink" title="孩子表示法"></a>孩子表示法</h4><p>树中每个结点有多棵子树，每个结点包含一个<em>数据域 data</em> 和多个<em>指针域 $child_n$</em>。<br>|data|$child_1$|$child_2$|$child_3$|…|$child_d$|<br>|-|-|-|-|-|-|<br><em>d</em>表示树的度。<br>缺点：很多的结点度都是小于 d 的，所以有很多的空链域，即在一棵 n 个结点度为 k 的树中必有 n(k-1)+1 个空链域。</p><h4 id="孩子兄弟表示法"><a href="#孩子兄弟表示法" class="headerlink" title="孩子兄弟表示法"></a>孩子兄弟表示法</h4><p>也成为二叉链表表示法，树中的每一个结点包含一个<em>数据域 data</em> 和两个<em>指针域 firstchild</em> 指向第一个孩子和 <em>nextsibling</em> 指向下一兄弟。<br>|firstchild|data|nextsibling|<br>|-|-|-|</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span> &#123;</span></span><br><span class="line">    Elemtype data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span> *<span class="title">fiestchild</span>, *<span class="title">nextsibling</span>;</span></span><br><span class="line">&#125;CSNode, *CSTree；</span><br></pre></td></tr></table></figure><h3 id="森林与二叉树的转换"><a href="#森林与二叉树的转换" class="headerlink" title="森林与二叉树的转换"></a>森林与二叉树的转换</h3><p>任何一棵和树对应的二叉树，其根结点的右子树必定是空。<br>把森林中第二棵树的根结点看成是第一棵树的根结点的兄弟，就可以推导出森林与二叉树的对应关系。</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;树的存储结构&quot;&gt;&lt;a href=&quot;#树的存储结构&quot; class=&quot;headerlink&quot; title=&quot;树的存储结构&quot;&gt;&lt;/a&gt;树的存储结构&lt;/h2&gt;&lt;ul&gt;
+      &lt;h2 id=&quot;树的存储结构&quot;&gt;&lt;a href=&quot;#树的存储结构&quot; class=&quot;headerlink&quot; title=&quot;树的存储结构&quot;&gt;&lt;/a&gt;树的存储结构&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;双亲表示法&lt;/li&gt;
 &lt;li&gt;孩子表示法&lt;/li&gt;
 &lt;li&gt;孩子兄弟表示法&lt;/li&gt;
 &lt;/ul&gt;
-      
     
     </summary>
     
