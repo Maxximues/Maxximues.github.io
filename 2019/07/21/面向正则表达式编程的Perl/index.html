@@ -13,8 +13,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<link rel="alternate" href="/atom.xml" title="Ano Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
-<link rel="canonical" href="http://maxximues.github.io/">
+<meta name="description" content="面向正则表达式编程的Perl"><link rel="alternate" href="/atom.xml" title="Ano Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="http://maxximues.github.io/2019/07/21/面向正则表达式编程的Perl/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css"><script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -40,7 +40,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
 </script>
 
-    <title>Ano Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title>面向正则表达式编程的Perl - Ano Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -83,9 +83,9 @@
 
       <main id="main" class="main">
         <div class="content-wrapper">
-          <div id="content" class="content"><section id="posts" class="posts"><article class="post">
+          <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/21/面向正则表达式编程的Perl/">面向正则表达式编程的Perl</a>
+      <h1 class="post-title">面向正则表达式编程的Perl
         </h1>
 
       <div class="post-meta">
@@ -94,46 +94,52 @@
         </span></div>
     </header>
 
-    <div class="post-content"><p><img src="http://www.kiffingish.com/images/poweredby/perl-logo.png" alt="Perl"></p>
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是正则表达式"><span class="toc-text">什么是正则表达式</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p><img src="http://www.kiffingish.com/images/poweredby/perl-logo.png" alt="Perl"></p>
 <p>由于经常使用一些文字处理工作，单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。</p>
-          <div class="read-more">
-            <a href="/2019/07/21/面向正则表达式编程的Perl/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/20/树和森林/">树和森林</a>
-        </h1>
+<a id="more"></a>
+<h2 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h2><blockquote>
+<p>A regular expression, regex or regexp (sometimes called a rational expression)is a sequence of characters that define a search pattern. Usually such patterns are used by string searching algorithms for “find” or “find and replace” operations on strings, or for input validation. It is a technique developed in theoretical computer science and formal language theory.</p>
+</blockquote>
+<p>以上是WiKipedia上的定义，也就是说正则表达式是一种特殊的字符序列，可以用来定义如何搜索匹配样本。</p>
+<p>在 Perl 中，通常使用 <strong>/ /</strong> 来界定匹配样本(实际上是 m//, m通常可以省略 )。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ab/     <span class="comment"># 表示匹配 ab 字符串</span></span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2019-07-20
-        </span></div>
-    </header>
+<p>但是如果在匹配源中本身就存在 /字符时，整个匹配样本就显得难以区分。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/http:\/\//  <span class="comment"># \字符用于转义 /字符</span></span><br></pre></td></tr></table></figure>
 
-    <div class="post-content"><h2 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h2><hr>
-          <div class="read-more">
-            <a href="/2019/07/20/树和森林/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/18/Binary-Tree/">Binary Tree</a>
-        </h1>
+<p>实际上Perl对 <strong>/ /</strong> 并不做硬性的要求，因此只要是使用成对的定界符即可，比如</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">m</span>%http:<span class="regexp">//</span>% <span class="keyword">or</span> <span class="keyword">m</span>&#123;http:<span class="regexp">//</span>&#125; <span class="keyword">or</span> <span class="keyword">m</span>[https:<span class="regexp">//</span>]</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2019-07-18
-        </span></div>
-    </header>
+<p>这些都可以达到一样的效果</p>
 
-    <div class="post-content"><h1 id="数据结构“树与二叉树”的学习"><a href="#数据结构“树与二叉树”的学习" class="headerlink" title="数据结构“树与二叉树”的学习"></a>数据结构“树与二叉树”的学习</h1><hr>
-<h4 id="一些学习心得"><a href="#一些学习心得" class="headerlink" title="一些学习心得"></a>一些学习心得</h4>
-          <div class="read-more">
-            <a href="/2019/07/18/Binary-Tree/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <nav class="pagination"></nav></section></div></div>
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://maxximues.github.io">Je Ano</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://maxximues.github.io/2019/07/21/面向正则表达式编程的Perl/">http://maxximues.github.io/2019/07/21/面向正则表达式编程的Perl/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="next" href="/2019/07/20/树和森林/">
+        <span class="next-text nav-default">树和森林</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="https://github.com/Maxximues" class="iconfont icon-github" title="github"></a>
