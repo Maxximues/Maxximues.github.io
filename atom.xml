@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://maxximues.github.io/"/>
-  <updated>2019-07-21T12:54:31.937Z</updated>
+  <updated>2019-07-22T11:14:03.844Z</updated>
   <id>http://maxximues.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://maxximues.github.io/2019/07/21/%E9%9D%A2%E5%90%91%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84Perl/"/>
     <id>http://maxximues.github.io/2019/07/21/面向正则表达式编程的Perl/</id>
     <published>2019-07-21T12:11:31.000Z</published>
-    <updated>2019-07-21T12:54:31.937Z</updated>
+    <updated>2019-07-22T11:14:03.844Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://www.kiffingish.com/images/poweredby/perl-logo.png" alt="Perl"></p><p>由于经常使用一些文字处理工作，单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。</p><a id="more"></a><h2 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h2><blockquote><p>A regular expression, regex or regexp (sometimes called a rational expression)is a sequence of characters that define a search pattern. Usually such patterns are used by string searching algorithms for “find” or “find and replace” operations on strings, or for input validation. It is a technique developed in theoretical computer science and formal language theory.</p></blockquote><p>以上是WiKipedia上的定义，也就是说正则表达式是一种特殊的字符序列，可以用来定义如何搜索匹配样本。</p><p>在 Perl 中，通常使用 <strong>/ /</strong> 来界定匹配样本(实际上是 m//, m通常可以省略 )。</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ab/     <span class="comment"># 表示匹配 ab 字符串</span></span><br></pre></td></tr></table></figure><p>但是如果在匹配源中本身就存在 /字符时，整个匹配样本就显得难以区分。</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/http:\/\//  <span class="comment"># \字符用于转义 /字符</span></span><br></pre></td></tr></table></figure><p>实际上Perl对 <strong>/ /</strong> 并不做硬性的要求，因此只要是使用成对的定界符即可，比如</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">m</span>%http:<span class="regexp">//</span>% <span class="keyword">or</span> <span class="keyword">m</span>&#123;http:<span class="regexp">//</span>&#125; <span class="keyword">or</span> <span class="keyword">m</span>[https:<span class="regexp">//</span>]</span><br></pre></td></tr></table></figure><p>这些都可以达到一样的效果</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="http://www.kiffingish.com/images/poweredby/perl-logo.png" alt="Perl"></p><p>由于经常使用一些文字处理工作，单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $Python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。</p><a id="more"></a><h2 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h2><blockquote><p>A regular expression, regex or regexp (sometimes called a rational expression)is a sequence of characters that define a search pattern. Usually such patterns are used by string searching algorithms for “find” or “find and replace” operations on strings, or for input validation. It is a technique developed in theoretical computer science and formal language theory.</p></blockquote><p>以上是WiKipedia上的定义，也就是说正则表达式是一种特殊的字符序列，可以用来定义如何搜索匹配样本。</p><p>在 Perl 中，通常使用 <strong>/ /</strong> 来界定匹配样本(实际上是 m//, m通常可以省略 )。</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ab/     <span class="comment"># 表示匹配 ab 字符串</span></span><br></pre></td></tr></table></figure><p>但是如果在匹配源中本身就存在 /字符时，整个匹配样本就显得难以区分。</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/http:\/\//  <span class="comment"># \字符用于转义 /字符</span></span><br></pre></td></tr></table></figure><p>实际上Perl对 <strong>/ /</strong> 并不做硬性的要求，因此只要是使用成对的定界符即可，比如</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">m</span>%http:\/\/% <span class="keyword">or</span> <span class="keyword">m</span>&#123;http:\/\/&#125;</span><br></pre></td></tr></table></figure><p>这些都可以达到一样的效果</p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://www.kiffingish.com/images/poweredby/perl-logo.png&quot; alt=&quot;Perl&quot;&gt;&lt;/p&gt;
-&lt;p&gt;由于经常使用一些文字处理工作，单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。&lt;/p&gt;
+&lt;p&gt;由于经常使用一些文字处理工作，单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $Python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。&lt;/p&gt;
     
     </summary>
     
