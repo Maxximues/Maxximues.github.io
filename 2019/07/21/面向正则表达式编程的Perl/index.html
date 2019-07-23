@@ -97,10 +97,10 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是正则表达式"><span class="toc-text">什么是正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#捷径—方便用于正则匹配中的”记号”"><span class="toc-text">捷径—方便用于正则匹配中的”记号”</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是正则表达式"><span class="toc-text">什么是正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#捷径—方便用于正则匹配中的”记号”"><span class="toc-text">捷径—方便用于正则匹配中的”记号”</span></a></li></ol>
     </div>
   </div><div class="post-content"><p><img src="http://www.kiffingish.com/images/poweredby/perl-logo.png" alt="Perl"></p>
-<p>由于经常使用一些文字处理工作，单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $Python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。</p>
+<p>单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $Python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。</p>
 <a id="more"></a>
 <h2 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h2><blockquote>
 <p>A regular expression, regex or regexp (sometimes called a rational expression)is a sequence of characters that define a search pattern. Usually such patterns are used by string searching algorithms for “find” or “find and replace” operations on strings, or for input validation. It is a technique developed in theoretical computer science and formal language theory.</p>
@@ -119,7 +119,7 @@
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">my</span> $one_url = <span class="string">"https://maxximues.github.io"</span>;</span><br><span class="line"><span class="keyword">if</span>($one_url =~ <span class="regexp">/^http:\/\//</span>) &#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"这是一个URL\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><em>^表示从头开始匹配</em></p>
-<h3 id="捷径—方便用于正则匹配中的”记号”"><a href="#捷径—方便用于正则匹配中的”记号”" class="headerlink" title="捷径—方便用于正则匹配中的”记号”"></a>捷径—方便用于正则匹配中的”记号”</h3><ul>
+<h2 id="捷径—方便用于正则匹配中的”记号”"><a href="#捷径—方便用于正则匹配中的”记号”" class="headerlink" title="捷径—方便用于正则匹配中的”记号”"></a>捷径—方便用于正则匹配中的”记号”</h2><ul>
 <li><p>. —用于匹配任意单个字符，除新的一行以外。</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ab.a/ <span class="comment"># 可以用于匹配 abaa，abba....</span></span><br></pre></td></tr></table></figure>
 </li>
