@@ -193,6 +193,12 @@
 <p>事实上在使用时这些也有一些简便方法</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/[<span class="number">0</span>-<span class="number">9</span>]/ == <span class="regexp">/\d/</span> <span class="comment"># decimal digits</span></span><br><span class="line">/[a-zA-Z]/ == <span class="regexp">/\D/</span> <span class="comment"># not a decimal digit</span></span><br><span class="line">/ <span class="regexp">/ == /</span>\<span class="keyword">s</span>/ <span class="comment"># whitespace</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>定位开头末尾的”锚”Anchors<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^w<span class="string">&#123;3&#125;</span>\.(\w)+@(\w)+\.com(\.cn)?$/ <span class="comment"># ^表示字符串开头匹配，$表示字符串末尾匹配，整体匹配一个邮箱</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2019/07/24/eAsWCR.png" alt="eAsWCR.png"><br>在Perl 5中，也可以使用 <em>\A</em> 和 <em>\Z</em>来分别表示开头和末尾。</p>
 
       </div>
       <div class="post-copyright">
@@ -210,7 +216,12 @@
   </div>
       <footer class="post-footer">
         
-        <nav class="post-nav"><a class="next" href="/2019/07/20/树和森林/">
+        <nav class="post-nav"><a class="prev" href="/2019/09/30/KMP/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">KMP</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/07/20/树和森林/">
         <span class="next-text nav-default">树和森林</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>

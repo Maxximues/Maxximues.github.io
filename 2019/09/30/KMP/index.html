@@ -13,8 +13,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<link rel="alternate" href="/atom.xml" title="Ano Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
-<link rel="canonical" href="http://maxximues.github.io/">
+<meta name="description" content="KMP"><link rel="alternate" href="/atom.xml" title="Ano Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="http://maxximues.github.io/2019/09/30/KMP/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css"><script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -40,7 +40,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
 </script>
 
-    <title>Ano Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title>KMP - Ano Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -83,9 +83,9 @@
 
       <main id="main" class="main">
         <div class="content-wrapper">
-          <div id="content" class="content"><section id="posts" class="posts"><article class="post">
+          <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/KMP/">KMP</a>
+      <h1 class="post-title">KMP
         </h1>
 
       <div class="post-meta">
@@ -193,58 +193,29 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getnext</span><span class="params">(Str substr, <span class="keyword">int</span> next[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    next[j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; substr.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j == <span class="number">0</span> || substr.ch[i] == substr.ch[j])&#123;</span><br><span class="line">            <span class="comment">// j == 0 保证了next[i]的值一定大于等于1，因为这个数组下标从1开始</span></span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            j = next[j];</span><br><span class="line">            <span class="comment">// 这里使用了动态规划进行优化，也可以使用常规方法，j--;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/21/面向正则表达式编程的Perl/">面向正则表达式编程的Perl</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-07-21
-        </span></div>
-    </header>
-
-    <div class="post-content"><p><img src="http://www.kiffingish.com/images/poweredby/perl-logo.png" alt="Perl"></p>
-<p>单个查找替换效率低下，于是就想着是否有方便的工具，但是不想使用 $Python$，就考虑到 $Perl$，虽然 $Perl$ 相对来说古怪一些，但是在接触以后，发现它还是很强大的，而且充满了乐趣。以下作为学习 $Perl$ 中的 $RegEx$ 的一些记录。</p>
-          <div class="read-more">
-            <a href="/2019/07/21/面向正则表达式编程的Perl/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/20/树和森林/">树和森林</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-07-20
-        </span></div>
-    </header>
-
-    <div class="post-content"><h2 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h2><hr>
-          <div class="read-more">
-            <a href="/2019/07/20/树和森林/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/18/Binary-Tree/">Binary Tree</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-07-18
-        </span></div>
-    </header>
-
-    <div class="post-content"><h1 id="数据结构“树与二叉树”的学习"><a href="#数据结构“树与二叉树”的学习" class="headerlink" title="数据结构“树与二叉树”的学习"></a>数据结构“树与二叉树”的学习</h1><hr>
-<h4 id="一些学习心得"><a href="#一些学习心得" class="headerlink" title="一些学习心得"></a>一些学习心得</h4>
-          <div class="read-more">
-            <a href="/2019/07/18/Binary-Tree/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <nav class="pagination"></nav></section></div></div>
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://maxximues.github.io">Je Ano</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://maxximues.github.io/2019/09/30/KMP/">http://maxximues.github.io/2019/09/30/KMP/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="next" href="/2019/07/21/面向正则表达式编程的Perl/">
+        <span class="next-text nav-default">面向正则表达式编程的Perl</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="https://github.com/Maxximues" class="iconfont icon-github" title="github"></a>
