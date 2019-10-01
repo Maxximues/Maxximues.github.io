@@ -231,9 +231,81 @@
 </thead>
 </table>
 <p>用C/C++代码描述</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getnext</span><span class="params">(Str substr, <span class="keyword">int</span> next[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    next[j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; substr.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j == <span class="number">0</span> || substr.ch[i] == substr.ch[j])&#123;</span><br><span class="line">            <span class="comment">// j == 0 保证了next[i]的值一定大于等于1，因为这个数组下标从1开始</span></span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            j = next[j];</span><br><span class="line">            <span class="comment">// 这里使用了动态规划进行优化，也可以使用常规方法，j--;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getnext</span><span class="params">(Str substr, <span class="keyword">int</span> next[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    next[j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; substr.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j == <span class="number">0</span> || substr.ch[i] == substr.ch[j])&#123;</span><br><span class="line">            <span class="comment">// j == 0 保证了next[i]的值一定大于等于1，因为这个数组下标从1开始</span></span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            j = next[j];</span><br><span class="line">            <span class="comment">// 这里使用了动态规划进行优化，也可以使用常规方法，j--;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<p>KMP的优化</p>
+<p>尽管上述方法已经大幅减少匹配时间，但是在遇到特殊的模式串时，根据next[j]回溯时可能存在重复，比如模式串：</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>A</th>
+<th>A</th>
+<th>A</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<p>当前比较位置假设为 j，当 j=5 时，字符不匹配，通过 next[j]=4 来时 j 回溯到 4 的位置，但是 j=4 时的字符和 j=5 的字符一样，继续回溯，next[j]=3，同样仍然要继续回溯，这使得 j 的值要在 5，4，3，2，1的位置依次回溯，这些的位置上的字符都是相等的，所以可以通过改进算法，使得 j 的回溯直接跳到最先的相同字符串位置。nextval 数组来保存更新的next 数组。</p>
+<p>以模式串ABABAAB为例，求得其 next 和 nextval 数组</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A</th>
+<th>B</th>
+<th>A</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+</table>
+<p>根据前面的 KMP 算法，容易得到其 next 数组：</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+</table>
+<p>求 nextval 数组的一般方法：</p>
+<ol>
+<li>当 j 等于 1 时，nextval[j]=0，作为特殊标记。</li>
+<li>当 $p_j$ 不等于 $p_k$ 时（k 等于 next[j]），nextval[j] 被赋值为 k。</li>
+<li>当 $p_j$ 等于 $p_k$ 时（k 等于 next[j]），nextval[j] 被赋值为 nextval[k]。</li>
+</ol>
+<p>由此得到 nextval 数组：</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>0</th>
+<th>1</th>
+<th>0</th>
+<th>4</th>
+<th>1</th>
+</tr>
+</thead>
+</table>
+<p>直接修改 getnext 函数，得到 getnextval 函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getnext</span><span class="params">(Str substr, <span class="keyword">int</span> nextval[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    nextval[j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; substr.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j == <span class="number">0</span> || substr.ch[i] == substr.ch[j])&#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            <span class="keyword">if</span>(substr.ch[i] != substr.ch[j])</span><br><span class="line">                nextval[i] = j;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                nextval[i] = nextval[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            j = nextval[j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       <div class="post-copyright">
     <p class="copyright-item">
